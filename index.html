@@ -145,6 +145,70 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-20161227" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>//数据转换
+        //Number
+        console.log(Number(null));//强制转换结果：0
+        console.log(Number(true));//转换结果：1
+        console.log(Number([]));//转换结果：0
+        console.log(Number([&quot;456&quot;]));//转换结果为数字456
+        console.log(Number(undefined));//转换结果：NaN
+        console.log(+&quot;12345&quot;);   //转换结果为数字12345(推荐)
+        console.log(parseInt(&quot;14354sdafdf&quot;));//转换结果为数字14354
+        //String
+        console.log(String(123));//转换结果为字符串123
+        console.log(String([]));//转换结果为空
+        console.log(String(null));//转换结果为null
+        console.log(String(undefined));//转换结果为undefined
+        console.log(12345+&quot;&quot;);//转换结果为字符串&quot;12345&quot;（推荐）
+        console.log(12345+[&quot;543&quot;,&quot;asd&quot;,&quot;988&quot;]);//转换结果为字符串&quot;12345543,asd,988&quot;
+        console.log(&quot;12345&quot;+null);//转换结果为字符串&quot;12345null&quot;
+        console.log(&quot;12345&quot;+function(){});//转换结果为字符串&quot;12345function(){}&quot;
+        console.log(12345+&quot;&quot;);
+
+        //自动转换
+        /*为假的值有：
+        false    0/-0    &quot;&quot;    NAN    undefined    null
+         */
+        if(&quot;&quot;){
+            console.log(&quot;yesyes&quot;);
+        }else{
+            console.log(&quot;nonono&quot;);
+        }
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/27/20161227/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-gitditail" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
