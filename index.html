@@ -166,6 +166,50 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-属性选择器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>选择器</strong></p>
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">   $(function () &#123;</div><div class="line">       $(&quot;img&quot;).css(&quot;width&quot;,&quot;260px&quot;);</div><div class="line">       $(&quot;img[alt][title=&apos;图像&apos;]&quot;).css(&quot;border&quot;,&quot;solid 2px red&quot;);</div><div class="line">   &#125;);//使用属性选择器快速匹配设置了alt属性，切设置title属性值为图像的img标签，并定义他们的样式</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="attribute-value"><a href="#attribute-value" class="headerlink" title="[attribute!=value]"></a>[attribute!=value]</h4><p>匹配所有不含有指定的属性，或者属性不等于特定值的元素。</p>
+<p>此选择器等价于:not([attr=value])<br>要匹配含有特定属性但不等于特定值的元素，请使用[attr]:not([attr=value])</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;input[name!=&apos;newsletter&apos;]&quot;).attr(&quot;checked&quot;, true);</div></pre></td></tr></table></figure>
+<h4 id="attribute-value-1"><a href="#attribute-value-1" class="headerlink" title="[attribute^=value]"></a>[attribute^=value]</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">查找所有 name 以 &apos;news&apos; 开始的 input 元素</div><div class="line"></div><div class="line">HTML 代码:</div><div class="line">&lt;input name=&quot;newsletter&quot; /&gt;</div><div class="line">&lt;input name=&quot;milkman&quot; /&gt;</div><div class="line">&lt;input name=&quot;newsboy&quot; /&gt;</div><div class="line"></div><div class="line">jQuery 代码:</div><div class="line">$(&quot;input[name^=&apos;news&apos;]&quot;)</div></pre></td></tr></table></figure>
+<h4 id="selector1-selector2-selectorN"><a href="#selector1-selector2-selectorN" class="headerlink" title="[selector1][selector2][selectorN]"></a>[selector1][selector2][selectorN]</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">复合属性选择器，需要同时满足多个条件时使用。</div><div class="line">找到所有含有 id 属性，并且它的 name 属性是以 man 结尾的</div><div class="line"></div><div class="line">HTML 代码:</div><div class="line">&lt;input id=&quot;man-news&quot; name=&quot;man-news&quot; /&gt;</div><div class="line">&lt;input name=&quot;milkman&quot; /&gt;</div><div class="line">&lt;input id=&quot;letterman&quot; name=&quot;new-letterman&quot; /&gt;</div><div class="line">&lt;input name=&quot;newmilk&quot; /&gt;</div><div class="line"></div><div class="line">jQuery 代码:</div><div class="line">$(&quot;input[id][name$=&apos;man&apos;]&quot;)</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/01/21/属性选择器/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/21/属性选择器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-jquery验证" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -187,98 +231,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/01/14/jquery验证/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-setinterval" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<style>
-    #box{
-        height: 200px;
-        width: 10px;
-        background-color: #f0ad4e;
-        position: relative;
-
-    }
-    #box1{
-        position: absolute;
-        right: -50px;
-        margin-top: 75px;
-        width: 50px;
-        height: 50px;
-
-        background-color: red;
-    }
-</style>
-<body>
-<div id="box">
-    <div id="box1">
-
-    </div>
-</div>
-<script>
-    /**
-     * setInterval(fun/code,300）:
-     * setTimeout(fun/code,300):
-     * 区别：
-     * setInterval（）：重复执行。相同时间间隔无限循环；
-     * setTimeout()只执行一次。
-     */
-
-
-
-    var b = document.getElementById("box1");
-            b.onmouseover = function () {
-                var k = b.offsetWidth;
-                var v;
-                clearInterval ();
-                    if(k==300){v=-10}
-                    if(k==10){v=10}
-                    setInterval(function () {if(k<300){b.style.width += v  + "px";} },30)
-
-            };
-
-
-
-
-</script>
-</body>
-</html>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/10/setinterval/">展开全文 >></a>
         </p>
       
 
