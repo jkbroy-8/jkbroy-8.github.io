@@ -166,6 +166,48 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-验证码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="验证码生成器"><a href="#验证码生成器" class="headerlink" title="验证码生成器"></a>验证码生成器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$width =80;</div><div class="line">$height =30;</div><div class="line">$type =3;</div><div class="line">$len = 4;</div><div class="line">$piexl=50;</div><div class="line">$line=5;</div><div class="line">//定义初始化变量。</div><div class="line">//1.创建画布</div><div class="line">	$image = imagecreatetruecolor($width,$height);</div><div class="line">	//2.</div><div class="line"></div><div class="line">	$white =imagecolorallocate($image,200,200,160);</div><div class="line">	$black =imagecolorallocate($image,0,0,0);</div><div class="line">	//imagecreatetruecolor()和imagecreate()</div><div class="line">      	这两个函数都是创建画布用的，不同之处在于，</div><div class="line">      	imagecreatetruecolor()有一个默认的黑色背景</div><div class="line">      	，另外一个则没有。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//3.填充整个矩形区域</div><div class="line">imagefilledrectangle($image,1,1,$width-2,$height-2,$white);</div><div class="line">//ImageFilledRectangle</div><div class="line"></div><div class="line">矩形区域着色。</div><div class="line"></div><div class="line">语法: int imagefilledrectangle(int im, int x1, int y1, int x2, int y2, int col);</div><div class="line"></div><div class="line">返回值: 整数</div><div class="line"></div><div class="line">函数种类: 图形处理</div><div class="line"></div><div class="line">内容说明</div><div class="line"></div><div class="line">本函数将图片的封闭长方形区域着色。参数 x1、y1 及 x2、y2 分别为矩形对角线的坐标。参数 col 表示欲涂上的颜色。</div></pre></td></tr></table></figure>
+<h3 id="准备字符串"><a href="#准备字符串" class="headerlink" title="准备字符串"></a>准备字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * @param $type类型：1-纯数字；2-纯字母；3-数字加字母</div><div class="line"> * @param $len 验证码的长度</div><div class="line"> * @return string 验证码的字符串</div><div class="line"> * 可选参数</div><div class="line"> */</div><div class="line">function getstr($type=1,$len=4)&#123;</div><div class="line">	if($type == 1)&#123;</div><div class="line">		$str = &quot;123456789&quot;;</div><div class="line">	&#125;else if($type == 2)&#123;</div><div class="line">		$str = &quot;asfagdagdgerwplojmnhrgdgagda&quot;;</div><div class="line">	&#125;else&#123;</div><div class="line">		$str = &quot;12154635dagdgrgdgagda&quot;;</div><div class="line">	&#125;</div><div class="line">	//将字符串打乱</div><div class="line">	$chars = str_shuffle($str);</div><div class="line">	//截取$len个长度的字符串，并返回</div><div class="line">	return substr($chars,0,$len);</div><div class="line">	//substr(string,start,length)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="单独绘制文字"><a href="#单独绘制文字" class="headerlink" title="单独绘制文字"></a>单独绘制文字</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//单独绘制文字</div><div class="line">for ($i=0;$i&lt;strlen($str);$i++)&#123;</div><div class="line">		$size=mt_rand(14,18);</div><div class="line">		$angle=mt_rand(-15,15);</div><div class="line">		$x=5+$size*$i;</div><div class="line">		$y=mt_rand(20,26);</div><div class="line">		$color=imagecolorallocate($image, mt_rand(90,120), mt_rand(100,290), mt_rand(120,250));</div><div class="line">		$font_file=&quot;font/&quot;.$fontFlie[mt_rand(0,count($fontFlie)-1)];</div><div class="line">		$text=substr($str, $i,1);</div><div class="line">		imagettftext($image, $size, $angle, $x, $y, $color, $font_file, $text);</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">//</div><div class="line">ImageColorAllocate</div><div class="line">匹配颜色。</div><div class="line">语法: int imagecolorallocate(int im, int red, int green, int blue);</div><div class="line">返回值: 整数</div><div class="line">函数种类: 图形处理</div><div class="line"></div><div class="line"></div><div class="line">内容说明</div><div class="line">本函数用来匹配图形的颜色，供其它绘图函数使用。参数 im 表示图形的 handle。参数 red、green、blue 是色彩三原色，其值从 0 至 255。</div><div class="line"></div><div class="line"></div><div class="line">使用范例</div><div class="line">&lt;?</div><div class="line">$white = ImageColorAllocate($im, 255,255,255);</div><div class="line">$black = ImageColorAllocate($im, 0,0,0);</div><div class="line">?&gt;</div><div class="line">//</div><div class="line">ImageTTFText</div><div class="line">写 TTF 文字到图中。</div><div class="line">语法: array ImageTTFText(int im, int size, int angle,</div><div class="line"> int x, int y, int col, string fontfile, string text);</div><div class="line">返回值: 数组</div><div class="line">函数种类: 图形处理</div><div class="line"></div><div class="line"></div><div class="line">内容说明</div><div class="line">本函数将 TTF (TrueType Fonts) 字型文字写入图片。</div><div class="line">参数 size 为字形的尺寸；angle 为字型的角度，顺时针计算，</div><div class="line">0 度为水平，也就是三点钟的方向 (由左到右)，</div><div class="line">90 度则为由下到上的文字；x,y 二参数为文字的坐标值 (原点为左上角)；参数 col 为字的颜色；fontfile 为字型文件名称，亦可是远端的文件；text 当然就是字符串内容了。返回值为数组，包括了八个元素，头二个分别为左下的 x、y 坐标，第三、四个为右下角的 x、y 坐标，第五、六及七、八二组分别为右上及左上的 x、y 坐标。治募注意的是欲使用本函数，系统要装妥 GD 及 Freetype 二个函数库。</div></pre></td></tr></table></figure>
+<h3 id="干扰元素"><a href="#干扰元素" class="headerlink" title="干扰元素"></a>干扰元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 干扰元素。</div><div class="line"> */</div><div class="line">if($piexl)&#123;</div><div class="line">	for($i=0;$i&lt;$piexl ; $i++)&#123;</div><div class="line">		imagesetpixel($image, mt_rand(1,$width-2), mt_rand(1,$height-2), $black);</div><div class="line">	&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">函数:ImageSetPixel()</div><div class="line">图形处理函数库</div><div class="line">imagesetpixel — 画一个单一像素。</div><div class="line">语法: bool imagesetpixel ( resource $image , int $x , int $y , int $color )</div><div class="line">返回值: 整数</div><div class="line">函数种类: 图形处理</div><div class="line">内容说明</div><div class="line">imagesetpixel() 在 图像中用 颜色在 ， 坐标（图像左上角为 0，0）上画一个点。</div><div class="line">本函数可在图片上绘出一点。参数 x、y 为欲绘点的坐标，参数 col 表示该点的颜色。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">	if($line)&#123;</div><div class="line">		for($i=0;$i&lt;$line;$i++)&#123;</div><div class="line">			$color=imagecolorallocate($image, mt_rand(90,120), mt_rand(100,290), mt_rand(120,250));</div><div class="line">			imageline($image, mt_rand(1,$width), mt_rand(0,$height), mt_rand(1,$width), mt_rand(0,$height), $color);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	//输出图片</div><div class="line">	header(&quot;content-type:image/gif&quot;);</div><div class="line">	imagegif($image);</div><div class="line">	imagedestroy($image);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/24/验证码/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-属性选择器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -338,59 +380,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/01/01/20161227/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-gitditail" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/01/gitditail/">git</a>
-    </h1>
-  
-
-        <a href="/2017/01/01/gitditail/" class="archive-article-date">
-  	<time datetime="2016-12-31T17:30:33.995Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>你好，欢迎来到！</p>
-<h2 id="git初步笔记"><a href="#git初步笔记" class="headerlink" title="git初步笔记"></a>git初步笔记</h2><h3 id="linux命令"><a href="#linux命令" class="headerlink" title="linux命令"></a>linux命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">1  ls <span class="comment"># 列出文件夹下的目录和文件</span></div><div class="line">2  ls <span class="_">-a</span> <span class="comment"># 列出全部的文件，连同隐藏文件</span></div><div class="line">3  ls <span class="_">-l</span> <span class="comment"># 列出长数据串，包含文件的属性与权限数据</span></div><div class="line">4  <span class="built_in">cd</span> 文件夹 <span class="comment">#进入指定的目录</span></div><div class="line">5  <span class="built_in">cd</span> .. <span class="comment"># 返回上一级</span></div><div class="line">6  mkdir 文件夹名 <span class="comment"># 创建一个文件夹 </span></div><div class="line">7  <span class="built_in">pwd</span> <span class="comment"># 返回当前所在路径</span></div><div class="line">8  rm t.txt <span class="comment"># 删除t.txt文件</span></div><div class="line">9  rm 文件夹名 -r <span class="comment"># 删除www文件夹（递归删除）</span></div><div class="line">10  rmdir 文件夹名 <span class="comment">#删除文件夹</span></div><div class="line">11  touch filename1 filename2 <span class="comment"># 创建多个文件</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a><br>
-        
-          <a class="article-more-a" href="/2017/01/01/gitditail/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/01/gitditail/">展开全文 >></a>
         </p>
       
 
