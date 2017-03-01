@@ -6,14 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="git@github.com:jkbroy-8/jkbroy-8.github.io.git">
-  <title>Archives | Ao_guiqing.blog</title>
+  <title>Ao_guiqing.blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="mysql下载mysqli地址：https://dev.mysql.com/downloads/mysql/
+安装打开mysql的安装目录（mysql-5.7.17-winx64），复制一份 my-default.ini
+并将其改名为my.ini 打开my.in文件修改如以下内容
+123basedir = C:\wbroot\mysql-5.7.17-winx64datadir = C:\wbro">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Ao_guiqing.blog">
-<meta property="og:url" content="git@github.com:jkbroy-8/jkbroy-8.github.io.git/archives/page/2/index.html">
+<meta property="og:url" content="git@github.com:jkbroy-8/jkbroy-8.github.io.git/2017/03/01/mysql/index.html">
 <meta property="og:site_name" content="Ao_guiqing.blog">
+<meta property="og:description" content="mysql下载mysqli地址：https://dev.mysql.com/downloads/mysql/
+安装打开mysql的安装目录（mysql-5.7.17-winx64），复制一份 my-default.ini
+并将其改名为my.ini 打开my.in文件修改如以下内容
+123basedir = C:\wbroot\mysql-5.7.17-winx64datadir = C:\wbro">
+<meta property="og:updated_time" content="2017-03-01T08:52:39.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ao_guiqing.blog">
+<meta name="twitter:description" content="mysql下载mysqli地址：https://dev.mysql.com/downloads/mysql/
+安装打开mysql的安装目录（mysql-5.7.17-winx64），复制一份 my-default.ini
+并将其改名为my.ini 打开my.in文件修改如以下内容
+123basedir = C:\wbroot\mysql-5.7.17-winx64datadir = C:\wbro">
   
     <link rel="alternative" href="/atom.xml" title="Ao_guiqing.blog" type="application/atom+xml">
   
@@ -164,171 +177,177 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-mysql" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><h3 id="下载mysqli"><a href="#下载mysqli" class="headerlink" title="下载mysqli"></a>下载mysqli</h3><pre><code>地址：https://dev.mysql.com/downloads/mysql/
+</code></pre><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>打开mysql的安装目录（mysql-5.7.17-winx64），复制一份 my-default.ini
+并将其改名为my.ini 打开my.in文件修改如以下内容
+</code></pre><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attr">basedir</span> = C:\wbroot\mysql-<span class="number">5.7</span>.<span class="number">17</span>-winx64</div><div class="line"><span class="attr">datadir</span> = C:\wbroot\mysql-<span class="number">5.7</span>.<span class="number">17</span>-winx64\data</div><div class="line"><span class="attr">port</span> = <span class="number">3306</span></div></pre></td></tr></table></figure>
+<pre><code>注意：路径根据mysqli安装路径来决定
+</code></pre><h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><pre><code>在系统属性中的 psth 中输入mysqli 安装的目录文件中bin的路径
+启动管理员 并输入 mysqld -install 成功后输入net start mysql
+显示启动成功。
+</code></pre><h3 id="安装mysqli"><a href="#安装mysqli" class="headerlink" title="安装mysqli"></a>安装mysqli</h3><pre><code>1.打开mysqli 命令 net start mysql
+2.关闭mysqli 命令 net stop mysql
+</code></pre><h3 id="登录mysql"><a href="#登录mysql" class="headerlink" title="登录mysql"></a>登录mysql</h3><pre><code>1. mysqli -u root -p
+2.设置密码 mysqladmin -u root password &quot;设置密码&quot;;
+</code></pre><h3 id="mysql数据库相关操作"><a href="#mysql数据库相关操作" class="headerlink" title="mysql数据库相关操作"></a>mysql数据库相关操作</h3><pre><code>1.查看数据库 show databases;
+2.创建一个数据库 creata database 数据库名; 例creata database book;
+3.删除一个数据库 drop database 数据库名;   例drop database book;
+4.使用数据库 use 数据库名  例use book;
+</code></pre><h3 id="mysql数据表的相关操作"><a href="#mysql数据表的相关操作" class="headerlink" title="mysql数据表的相关操作"></a>mysql数据表的相关操作</h3><pre><code>1.创建表 create table book_version(id int,name varchar(20));
+2.查看数据表 show tables;
+3.查看表结构 desc aoguiqing;
+   3.1 field 字段
+   3.2 type类型
+   3.3 null 是否可以为空
+   3.4 key 是否为主键或外键
+   3.5 Default 默认值
+   3.6  Extra 附加信息
+</code></pre><h3 id="储存引擎"><a href="#储存引擎" class="headerlink" title="储存引擎"></a>储存引擎</h3><pre><code>engine ：储存引擎。支持的引擎为myisam，innoDB, DBD,MERORY,ARCHIVE
+ SHARSET :设置字符串
+ note：加上\g更容易显示信息
+</code></pre><h3 id="主键-不能为空"><a href="#主键-不能为空" class="headerlink" title="主键     不能为空"></a>主键     不能为空</h3><h3 id="修改数据表结构"><a href="#修改数据表结构" class="headerlink" title="修改数据表结构"></a>修改数据表结构</h3><pre><code>1  ALTER table &apos;aoguiqing_version&apos; modify &apos;id&apos; int(10);
+2 增加一个字段  ALTER TABLE aoguiqing_version ADD AGE int(10);
+3 设置主键  alter table user add primary key（id）；
+4修改表的名称 alter tableuser rename users；
+# 修改数据表结构
+## 将id修改成int(10) 修改指定字段的数据类型
+ALTER table `user` modify `id` int(10);
+## 增加一个age字段
+ALTER TABLE `user` ADD `age` int(2);
+## 将id设置成主键
+ALTER TABLE `user` ADD PRIMARY KEY (`id`);
+## 将id设置成唯一字段
+ALTER TABLE `user` ADD UNIQUE (`id`);
+## 修改表名
+ALTER TABLE `user` RENAME `users`;
+## 删除主键
+ALTER TABLE `user` DROP PRIMARY KEY;
+## 删除字段
+ALTER TABLE `user` DROP `age`;
+## 修改一个字段
+ALTER TABLE `user` CHANGE `age` `ages` int(2);
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>请我喝酒？<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://oizgx5jt0.bkt.clouddn.com/%E4%B9%9F%E6%98%AF%E6%88%91.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://oizgx5jt0.bkt.clouddn.com/tguy.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/01/20161227/" class="archive-article-date">
-  	<time datetime="2016-12-31T17:32:24.507Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/01/20161227/">数据转换</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/01/gitditail/" class="archive-article-date">
-  	<time datetime="2016-12-31T17:30:33.995Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/01/gitditail/">git</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/23/js/" class="archive-article-date">
-  	<time datetime="2016-12-23T09:29:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/23/js/">变量 </a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http:git@github.com:jkbroy-8/jkbroy-8.github.io.git/2017/03/01/mysql/" alt="微信分享二维码">
+    </div>
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/23/my-js-study/" class="archive-article-date">
-  	<time datetime="2016-12-23T09:29:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/23/my-js-study/">my js study </a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/24/验证码/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/23/函数递归/" class="archive-article-date">
-  	<time datetime="2016-12-23T09:29:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/23/函数递归/">函数递归 </a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+
+
+
 
 
           </div>
@@ -351,8 +370,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

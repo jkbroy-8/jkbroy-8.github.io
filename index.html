@@ -166,6 +166,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><h3 id="下载mysqli"><a href="#下载mysqli" class="headerlink" title="下载mysqli"></a>下载mysqli</h3><pre><code>地址：https://dev.mysql.com/downloads/mysql/
+</code></pre><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>打开mysql的安装目录（mysql-5.7.17-winx64），复制一份 my-default.ini
+并将其改名为my.ini 打开my.in文件修改如以下内容
+</code></pre><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attr">basedir</span> = C:\wbroot\mysql-<span class="number">5.7</span>.<span class="number">17</span>-winx64</div><div class="line"><span class="attr">datadir</span> = C:\wbroot\mysql-<span class="number">5.7</span>.<span class="number">17</span>-winx64\data</div><div class="line"><span class="attr">port</span> = <span class="number">3306</span></div></pre></td></tr></table></figure>
+<pre><code>注意：路径根据mysqli安装路径来决定
+</code></pre><h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><pre><code>在系统属性中的 psth 中输入mysqli 安装的目录文件中bin的路径
+启动管理员 并输入 mysqld -install 成功后输入net start mysql
+显示启动成功。
+</code></pre><h3 id="安装mysqli"><a href="#安装mysqli" class="headerlink" title="安装mysqli"></a>安装mysqli</h3><pre><code>1.打开mysqli 命令 net start mysql
+2.关闭mysqli 命令 net stop mysql
+</code></pre><h3 id="登录mysql"><a href="#登录mysql" class="headerlink" title="登录mysql"></a>登录mysql</h3><pre><code>1. mysqli -u root -p
+2.设置密码 mysqladmin -u root password &quot;设置密码&quot;;
+</code></pre><h3 id="mysql数据库相关操作"><a href="#mysql数据库相关操作" class="headerlink" title="mysql数据库相关操作"></a>mysql数据库相关操作</h3><pre><code>1.查看数据库 show databases;
+2.创建一个数据库 creata database 数据库名; 例creata database book;
+3.删除一个数据库 drop database 数据库名;   例drop database book;
+4.使用数据库 use 数据库名  例use book;
+</code></pre><h3 id="mysql数据表的相关操作"><a href="#mysql数据表的相关操作" class="headerlink" title="mysql数据表的相关操作"></a>mysql数据表的相关操作</h3><pre><code>1.创建表 create table book_version(id int,name varchar(20));
+2.查看数据表 show tables;
+3.查看表结构 desc aoguiqing;
+   3.1 field 字段
+   3.2 type类型
+   3.3 null 是否可以为空
+   3.4 key 是否为主键或外键
+   3.5 Default 默认值
+   3.6  Extra 附加信息
+</code></pre><h3 id="储存引擎"><a href="#储存引擎" class="headerlink" title="储存引擎"></a>储存引擎</h3><pre><code>engine ：储存引擎。支持的引擎为myisam，innoDB, DBD,MERORY,ARCHIVE
+ SHARSET :设置字符串
+ note：加上\g更容易显示信息
+</code></pre><h3 id="主键-不能为空"><a href="#主键-不能为空" class="headerlink" title="主键     不能为空"></a>主键     不能为空</h3><h3 id="修改数据表结构"><a href="#修改数据表结构" class="headerlink" title="修改数据表结构"></a>修改数据表结构</h3><pre><code>1  ALTER table &apos;aoguiqing_version&apos; modify &apos;id&apos; int(10);
+2 增加一个字段  ALTER TABLE aoguiqing_version ADD AGE int(10);
+3 设置主键  alter table user add primary key（id）；
+4修改表的名称 alter tableuser rename users；
+# 修改数据表结构
+## 将id修改成int(10) 修改指定字段的数据类型
+ALTER table `user` modify `id` int(10);
+## 增加一个age字段
+ALTER TABLE `user` ADD `age` int(2);
+## 将id设置成主键
+ALTER TABLE `user` ADD PRIMARY KEY (`id`);
+## 将id设置成唯一字段
+ALTER TABLE `user` ADD UNIQUE (`id`);
+## 修改表名
+ALTER TABLE `user` RENAME `users`;
+## 删除主键
+ALTER TABLE `user` DROP PRIMARY KEY;
+## 删除字段
+ALTER TABLE `user` DROP `age`;
+## 修改一个字段
+ALTER TABLE `user` CHANGE `age` `ages` int(2);
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/01/mysql/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-验证码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -322,64 +406,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/01/09/json/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-20161227" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/01/20161227/">数据转换</a>
-    </h1>
-  
-
-        <a href="/2017/01/01/20161227/" class="archive-article-date">
-  	<time datetime="2016-12-31T17:32:24.507Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>你好，欢迎来到！</p>
-<h2 id="数据转换"><a href="#数据转换" class="headerlink" title="数据转换"></a>数据转换</h2><h3 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h3><p>console.log(Number(null));//强制转换结果：0</p>
-<p>console.log(Number(true));//转换结果：1</p>
-<p>console.log(Number([]));//转换结果：0</p>
-<p>console.log(Number([“456”]));//转换结果为数字456</p>
-<p>console.log(Number(undefined));//转换结果：NaN</p>
-<p>console.log(+”12345”);   //转换结果为数字12345(推荐)</p>
-<p>String</p>
-        
-          <a class="article-more-a" href="/2017/01/01/20161227/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/01/20161227/">展开全文 >></a>
         </p>
       
 
